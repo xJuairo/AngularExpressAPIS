@@ -1,0 +1,59 @@
+<div class="parent">
+    <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <select matNativeControl (change)="call()" [(ngModel)]="selectedLevel">
+        <option value="Aguascalientes" selected>Aguascalientes</option>
+        <option value="Baja California" >Baja California</option>
+        <option value="Baja California Sur">Baja California Sur</option>
+        <option value="Chihuahua">Chihuahua</option>
+        <option value="Campeche">Campeche</option>
+        <option value="Coahuila">Coahuila</option>
+        </select>
+    </mat-form-field>
+    {{texto}}
+</div>
+<button mat-raised-button color="primary" (click)="alerta()" disabled="{{verdad}}">Ver municipios</button>
+
+  <table mat-table [dataSource]="variable1" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>name</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef>state</th>
+      <td mat-cell *matCellDef="let element">{{element.state}}</td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="relativehumidity">
+      <th mat-header-cell *matHeaderCellDef>relativehumidity</th>
+      <td mat-cell *matCellDef="let element">{{element.relativehumidity}}</td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="longitude">
+      <th mat-header-cell *matHeaderCellDef>longitude</th>
+      <td mat-cell *matCellDef="let element">{{element.longitude}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="latitude">
+        <th mat-header-cell *matHeaderCellDef>latitude</th>
+        <td mat-cell *matCellDef="let element">{{element.latitude}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tempc">
+        <th mat-header-cell *matHeaderCellDef>tempc</th>
+        <td mat-cell *matCellDef="let element">{{element.tempc}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
+  </table>
+  
+  
